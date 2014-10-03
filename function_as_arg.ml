@@ -1,5 +1,7 @@
 #!/usr/bin/env ocaml
 
+
+(* Function sum_if_true takes function test as an argument *)
 let sum_if_true test first second =
     (if test first then first else 0)
     + (if test second then second else 0)
