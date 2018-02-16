@@ -7,7 +7,7 @@
     else (Printf.printf "%8d%8d%8d\n" i n acc; f (i+1) n ((i+1)*acc))
   in
     f 0 n 1;;
-val fac : int -> int = <fun>
+let fac : int -> int = <fun>
 # fac 5;;
        0       5       1
        1       5       1

@@ -6,4 +6,4 @@
 
 (Printf.printf "%8s\n" "one");;
 
-(Printf.printf "%8s\n" (1, 2, 3));;
+
