@@ -1,15 +1,24 @@
 #!/usr/bin/env ocaml
 
-(* Definition of a function *)
-let square x = x * x ;;
+#use "topfind"
+#thread
+#require "core"
+open Core
 
-square 2;;
+let f = 
+  (* Definition of a function *)
+  let square x = x * x in
 
-square (square 2);;
+  let res = square 2 in
+  Printf.printf "res: %d\n" res ;
 
-(* Ratio function showing type inference *)
-let ratio x y =
-  Float.of_int x /. Float.of_int y
-;;
+  let res = square (square 2) in
+  Printf.printf "res: %d\n" res ;
 
-ratio 4 7;;
+  (* Ratio function showing type inference *)
+  let ratio x y =
+    Float.of_int x /. Float.of_int y in
+
+  let res = ratio 4 7 in
+  Printf.printf "res: %f\n" res ;
+()

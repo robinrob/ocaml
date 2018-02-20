@@ -1,3 +1,3 @@
 #!/usr/bin/env ocaml
 
-assert(true = true) ;;
+assert(true = true)

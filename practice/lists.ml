@@ -1,3 +1,3 @@
 #!/usr/bin/env ocaml
 
-let languages = ["OCaml";"Perl";"C"];;
+let languages = ["OCaml";"Perl";"C"]

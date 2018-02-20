@@ -6,6 +6,4 @@
 
 let first_if_true test x y =
   if test x then x else y
-;;
-
 
