@@ -11,5 +11,5 @@ let f =
         Float.of_int x /. Float.of_int y in
 
         let res = ratio 2 3 in
-            Printf.printf "res: %f" res;
+            Printf.printf "res: %f\n" res;
 ()

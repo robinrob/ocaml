@@ -21,4 +21,8 @@ let f =
 
   let res = ratio 4 7 in
   Printf.printf "res: %f\n" res ;
+
+  let is_gt_5 x = x > 5 ;
+  let res = is_gt_5 4 ;
+  Printf.printf "res: %f\n" res ; 
 ()
