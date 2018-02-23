@@ -1,6 +1,6 @@
 #!/usr/bin/env ocaml
 
-let f = 
+let _ = 
     let rec sum list =
         match list with
         | [] -> 0
@@ -20,4 +20,3 @@ let f =
             Printf.printf "ans: %d\n" ans;
             assert( ans = 10 )
         ;
-()

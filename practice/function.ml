@@ -5,7 +5,7 @@
 #require "core"
 open Core
 
-let f = 
+let _ =
   (* Definition of a function *)
   let square x = x * x in
 
@@ -21,4 +21,3 @@ let f =
 
   let res = ratio 4 7 in
   Printf.printf "res: %f\n" res ;
-()
