@@ -7,6 +7,6 @@
     else (Printf.printf "%8d%8d%8d\n" i n acc; f (i+1) n ((i+1)*acc))
   in
     f 0 n 1
-  in
-
+    
+let _ =
   fac 5

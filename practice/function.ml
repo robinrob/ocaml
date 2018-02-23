@@ -5,7 +5,7 @@
 #require "core"
 open Core
 
-let f = 
+let _ = 
   (* Definition of a function *)
   let square x = x * x in
 

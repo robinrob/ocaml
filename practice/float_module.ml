@@ -6,7 +6,7 @@
 open Core
 
 
-let f =
+let _ =
     let ratio x y =
         Float.of_int x /. Float.of_int y in
 
