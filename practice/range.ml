@@ -29,3 +29,13 @@ let _ =
         in
 
     pretty_prent_list (range 5) ;
+
+    let range_head n = 
+        let rec add_nums i n acc =
+            if i <= 0
+            then acc
+            else
+                i :: (add_nums (i-1) n acc) ;
+        in
+            add_nums n n [] in
+            pretty_prent_list (range_head 5) ;

@@ -1,0 +1,7 @@
+
+destutter_list [5 5 5]
+-> 5 :: destutter_list [5]
+-> [5]
+
+(5 5 5)
+5 (5)
