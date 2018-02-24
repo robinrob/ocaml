@@ -12,8 +12,10 @@ let variables_1 =
 
 
 let variables_2 =
-    let age = 30 in
-    Printf.printf "age: %d\n" age ;
-    let age = 31 in
-    Printf.printf "age: %d\n" age ;
+    let age = 30 in (
+        Printf.printf "age: %d\n" age ;
+        let age = 31 in (
+            Printf.printf "age: %d\n" age ;
+        )
+    )
 
