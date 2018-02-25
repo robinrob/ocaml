@@ -47,7 +47,7 @@ let _ =
         _destutter_list list [] ;
     in
     
-    let test_destutter printer destutterer list expected =
+    let test_destutter list expected printer destutterer =
         Printf.printf "list: " ;
         printer list ;
         Printf.printf "expected: " ;
@@ -60,29 +60,20 @@ let _ =
         assert(res)
     in
 
-    let test_sean tester list expected =
-        tester destutter_list_sean list expected ;
-    in
+    let test_both tester =
+        Printf.printf "TESTING ROBIN\n" ;
+        tester destutter_list ;
 
-    let test_robin tester list expected = 
-        tester destutter_list list expected ;
-    in
-
-    let test printer list expected =
-        let tester = test_destutter printer in
-            Printf.printf "TESTING ROBIN\n" ;
-            test_robin tester list expected ;
-
-            Printf.printf "TESTING SEAN\n" ;
-            test_sean tester list expected ;
+        Printf.printf "TESTING SEAN\n" ;
+        tester destutter_list_sean ;
     in
 
     let test_int list expected =
-        test pretty_prent_list_int list expected ;
+        test_both (test_destutter list expected pretty_prent_list_int) ;
     in
 
     let test_str list expected =
-        test pretty_prent_list_str list expected ;
+        test_both (test_destutter list expected pretty_prent_list_str) ;
     in
 
     test_int [1] [1] ;
