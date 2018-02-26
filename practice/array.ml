@@ -33,11 +33,11 @@ let _ =
         let rec _print_arr_2 current last = 
             match current with
                 | num ->
-                if current < (Core.Array.length arr)
-                then (
-                    Printf.printf "el: %d\n" arr.(current) ;
-                    _print_arr_2 (current+1) last
-                )
+                    if current < (Core.Array.length arr)
+                    then (
+                        Printf.printf "el: %d\n" arr.(current) ;
+                        _print_arr_2 (current+1) last
+                    )
         in
         _print_arr_2 0 (Core.Array.length arr)
     in
@@ -47,10 +47,10 @@ let _ =
             match arr with
                 | [| |] -> ()
                 | arr ->
-                Printf.printf "el: %d\n" arr.(current) ;
-                if current < (Core.Array.length _arr -1)
-                then
-                    _print_arr_3 arr (current+1)
+                    Printf.printf "el: %d\n" arr.(current) ;
+                    if current < (Core.Array.length _arr -1)
+                    then
+                        _print_arr_3 arr (current+1)
         in
         _print_arr_3 _arr 0
     in
