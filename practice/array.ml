@@ -1,6 +1,11 @@
 #!/usr/bin/env ocaml
 
 
+#use "topfind"
+#thread
+#require "core"
+open Core
+
 let _ =
     let num_els = function
         | [| |] -> Printf.printf "EMPTY\n" 
@@ -28,13 +33,13 @@ let _ =
         let rec _print_arr_2 current last = 
             match current with
                 | num ->
-                if current < (Array.length arr)
+                if current < (Core.Array.length arr)
                 then (
                     Printf.printf "el: %d\n" arr.(current) ;
                     _print_arr_2 (current+1) last
                 )
         in
-        _print_arr_2 0 (Array.length arr)
+        _print_arr_2 0 (Core.Array.length arr)
     in
 
     let print_arr_3 _arr =
@@ -43,11 +48,19 @@ let _ =
                 | [| |] -> ()
                 | arr ->
                 Printf.printf "el: %d\n" arr.(current) ;
-                if current < (Array.length _arr -1)
+                if current < (Core.Array.length _arr -1)
                 then
                     _print_arr_3 arr (current+1)
         in
         _print_arr_3 _arr 0
+    in
+
+    let print_arr_4 arr =
+        Caml.Array.iter (fun el -> Printf.printf "el: %d\n" el ) arr
+    in
+
+    let print_arr_5 arr =
+        Core.Array.iter arr (fun el -> Printf.printf "el: %d\n" el )
     in
     
     Printf.printf "FIRST_ELEMENT\n" ;
@@ -55,20 +68,24 @@ let _ =
     first_element [|1|] ;
     first_element [|1; 2|] ;
 
+    let test_printer printer =
+        printer [||] ;
+        printer [|1|] ;
+        printer [|1; 2|] ;
+        printer [|1; 2; 3; 4; 5|] ;
+    in
+
     Printf.printf "PRINT_ARR\n" ;
-    print_arr [||] ;
-    print_arr [|1|] ;
-    print_arr [|1; 2|] ;
-    print_arr [|1; 2; 3; 4; 5|] ;
+    test_printer print_arr ;
 
     Printf.printf "PRINT_ARR_2\n" ;
-    print_arr_2 [||] ; 
-    print_arr_2 [|1|] ; 
-    print_arr_2 [|1; 2|] ;
-    print_arr_2 [|1; 2; 3; 4; 5|] ;
+    test_printer print_arr_2 ;
 
     Printf.printf "PRINT_ARR_3\n" ;
-    print_arr_3 [||] ; 
-    print_arr_3 [|1|] ; 
-    print_arr_3 [|1; 2|] ;
-    print_arr_3 [|1; 2; 3; 4; 5|] ;
+    test_printer print_arr_3 ;
+
+    Printf.printf "PRINT_ARR_4\n" ;
+    test_printer print_arr_4 ;
+
+    Printf.printf "PRINT_ARR_5\n" ;
+    test_printer print_arr_5 ;
