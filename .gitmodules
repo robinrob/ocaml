@@ -1,3 +1,6 @@
 [submodule "base"]
 	path = base
 	url = https://github.com/janestreet/base
+[submodule "code-examples"]
+	path = code-examples
+	url = git@github.com:robinrob/code-examples
