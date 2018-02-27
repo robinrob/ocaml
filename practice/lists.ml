@@ -38,11 +38,11 @@ let _ =
     The function passed to List.map is passed under a labeled argument ~f.
     *)
     Printf.printf "map:\n" ;
-    let lens = List.map languages ~f:String.length in
+    let lens = Core.List.map languages ~f:String.length in
     print_list_d lens ;
 
     Printf.printf "iter:\n" ;
-    List.iter [3; 2; 1] print_int ;
+    Core.List.iter [3; 2; 1] print_int ;
 
     Printf.printf "appending\n" ;
     let languages = "Ruby" :: "Python" :: languages ; in

@@ -89,3 +89,17 @@ let _ =
 
     Printf.printf "PRINT_ARR_5\n" ;
     test_printer print_arr_5 ;
+
+
+    Printf.printf "ARRAY MUTATION\n" ;
+    let print_str_arr arr =
+        Printf.printf "ARRAY\n" ;
+        Core.Array.iter arr (fun el -> Printf.printf "el: %s\n" el )
+    in
+
+    let arr = [|"A"; "B"; "C"; "D";|] in
+    print_str_arr arr ;
+    arr.(0) <- "E" ;
+    print_str_arr arr ;
+    arr.(4) <- "A" ;
+    
