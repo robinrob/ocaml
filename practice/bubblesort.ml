@@ -7,6 +7,7 @@ open Core
 
 
 let _ =
+    (* Imperative bubblesort *)
     let bubblesort arr =
         let iter1 i el =
             let iter2 j el =
