@@ -17,7 +17,7 @@ let _ =
     if true
     then begin
         Printf.printf "BLAH\n" ;
-    end
+    end ;
 
     (* Or: *)
     if true
