@@ -5,8 +5,6 @@
 #require "core"
 open Core
 
-#require "pretty_print"
-
 
 let _ =
     (* Imperative bubblesort using refs *)
@@ -30,11 +28,11 @@ let _ =
         arr
     in
 
-    (* let pretty_print_arr arr =
+    let pretty_print_arr arr =
         Printf.printf "[" ;
         Core.Array.iter arr (fun el -> Printf.printf " %d" el ) ;
         Printf.printf " ]\n" ;
-    in *)
+    in
 
     pretty_print_arr (bubblesort [|1; 2; 3; 4; 5|]) ;
     pretty_print_arr (bubblesort [|5; 4; 3; 2; 1|]) ;

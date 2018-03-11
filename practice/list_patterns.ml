@@ -9,8 +9,9 @@ let _ =
 
     (* This version compiles but generates a compiler warning *)
     let my_favorite_language (my_favorite :: the_rest) =
-         my_favorite in
-         Printf.printf "my_favorite_language: %s\n" (my_favorite_language languages) ;
+        my_favorite
+    in
+        Printf.printf "my_favorite_language: %s\n" (my_favorite_language languages) ;
 
          (* And generates an exception when a non-matching value is given! *)
          (* Printf.printf "my_favorite_language: %s\n" (my_favorite_language []) ; *)

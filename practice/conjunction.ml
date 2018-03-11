@@ -1,7 +1,6 @@
 #!/usr/bin/env ocaml
 
 
-
 let _ =
     let if_one =
         Printf.printf "if_one!\n" ;
