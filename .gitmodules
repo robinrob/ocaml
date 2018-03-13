@@ -1,6 +1,6 @@
 [submodule "base"]
-	path = base
-	url = https://github.com/janestreet/base
-[submodule "code-examples"]
-	path = code-examples
-	url = git@github.com:robinrob/code-examples
+  path = base
+  url = https://github.com/janestreet/base
+[submodule "ocaml-code-examples"]
+	path = ocaml-code-examples
+	url = git@github.com:robinrob/ocaml-code-examples
