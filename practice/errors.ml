@@ -2,9 +2,13 @@
 
 
 #use "topfind"
+#camlp4o
 #thread
 #require "core"
+#require "ppx_jane"
 open Core
+open Sexplib.Std
+
 
 
 let _ =
@@ -53,19 +57,27 @@ let _ =
     print_bounds (compute_bounds []) ;
     print_bounds (compute_bounds [1]) ;
 
-    let return_ok_mate =
-        Ok "Mate"
+
+    let match_ok  =
+        match Ok "Mate" with
+            | Ok message -> Printf.printf "%s\n" message ;
+            | Error _ -> Printf.printf "error" ;
     in
-
-    match return_ok_mate with
-        | Ok message -> Printf.printf "%s\n" message ;
-        | Error _ -> Printf.printf "error" ;
+    match_ok ;
 
 
-    let return_error_mate =
-        Error "You hav'ny read the highway code"
+    let match_err = 
+        match Error "You hav'ny read the highway code" with
+            | Error message -> Printf.printf "%s\n" message ;
+            | Ok _ -> Printf.printf "actually ok" ;
     in
+    match_err ;
 
-    match return_error_mate with
-        | Error message -> Printf.printf "%s\n" message ;
-        | Ok _ -> Printf.printf "actually ok" ;
+    Printf.printf "%s\n" (Error.to_string_hum (Error.of_string "ERROR GO HOME")) ;
+
+    let err = (Error.create "Something failed a long time ago" Time.epoch Time.sexp_of_t) in
+    Printf.printf "%s\n" (Error.to_string_hum err) ;
+
+    Printf.printf "%s\n" (Error.to_string_hum (Error.create "Blah" (3.5, ["a"; "b"; "c"], 6034) [%sexp_of: float * string list * int])) ;
+
+    Printf.printf "%s\n" ([%sexp_of: float * string list * int] (3.5, ["a"; "b"; "c"], 6034) |> Sexp.to_string ) ;
