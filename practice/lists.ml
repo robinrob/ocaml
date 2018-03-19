@@ -51,3 +51,7 @@ let _ =
     Printf.printf "concatenation\n" ;
     let names = ["Robin"] @ ["Andrew"; "Smith"] in
         print_list_s names ;
+
+    Printf.printf "List.hd: %d\n" (match (List.hd [1; 2; 3]) with Some x -> x | None -> 0) ;
+    Printf.printf "List.last: %d\n" (match (List.last [1; 2; 3]) with Some x -> x | None -> 0) ;
+    print_list_d (match (List.tl [1; 2; 3]) with Some x -> x | None -> []) ;

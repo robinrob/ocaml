@@ -60,3 +60,10 @@ let _ =
   let x, y = (func_with_2_match 1 10) in
   Printf.printf "%d %d\n" x y ;
 
+  let x_and_y x y = 
+    match x, y with
+    |x, y -> x + y
+  in
+
+  Printf.printf "res: %d\n" (x_and_y 1 2) ;
+
