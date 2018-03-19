@@ -2,13 +2,11 @@
 
 
 #use "topfind"
-#camlp4o
 #thread
 #require "core"
 #require "ppx_jane"
 open Core
 open Sexplib.Std
-
 
 
 let _ =
@@ -81,3 +79,30 @@ let _ =
     Printf.printf "%s\n" (Error.to_string_hum (Error.create "Blah" (3.5, ["a"; "b"; "c"], 6034) [%sexp_of: float * string list * int])) ;
 
     Printf.printf "%s\n" ([%sexp_of: float * string list * int] (3.5, ["a"; "b"; "c"], 6034) |> Sexp.to_string ) ;
+
+    Printf.printf "%s\n" (Error.to_string_hum (Error.tag
+        (Error.of_list [
+            Error.of_string "You forgot your driving license";
+            Error.of_string "Your tires were slashed"
+        ])
+        "over the weekend"
+    ));
+
+    (* Bind can be used as a way of sequencing together error-producing functions so that the first one to produce an error terminates the computation.
+       Compute_bounds can be written more elegantly using bind:
+    *)
+    let _compute_bounds2 ~cmp list =
+        let sorted = List.sort ~cmp list in
+        Option.bind (List.hd sorted) (fun first ->
+        Option.bind (List.last sorted) (fun last ->
+            Some (first,last)))
+    in
+
+    let compute_bounds2 list =
+        _compute_bounds2 ~cmp:cmp list ;
+    in
+
+    print_bounds (compute_bounds [1; 2; 3]) ;
+    print_bounds (compute_bounds [1; 2; 3; 10]) ;
+    print_bounds (compute_bounds []) ;
+    print_bounds (compute_bounds [1]) ;
